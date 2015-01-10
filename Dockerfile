@@ -7,8 +7,7 @@ FROM ubuntu
 ADD ./VMware-vSphere-CLI-5.5.0-1384587.x86_64.tar.gz /vsphere_installer
 
 RUN apt-get update
-RUN apt-get install -y libxml-libxml-perl libssl-dev make uuid-dev
-RUN PERL_MM_USE_DEFAULT=1 cpan install Archive::Zip  Crypt::SSLeay Class::MethodMaker  Data::Dump SOAP::Lite
-RUN PERL_MM_USE_DEFAULT=1 cpan install UUID
+RUN apt-get install -y libxml-libxml-perl libssl-dev make uuid-dev perl-doc lib32z1
+RUN PERL_MM_USE_DEFAULT=1 cpan install Archive::Zip  Crypt::SSLeay Class::MethodMaker  Data::Dump SOAP::Lite Perldoc UUID
 
 #Then go install the vmware cli by hand... TODO expect script that deals with the EULA.
